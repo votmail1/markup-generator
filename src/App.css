@@ -1,0 +1,26 @@
+header{
+  min-height: 4em;
+  background-color: blueviolet;
+}
+aside{
+width: 20%;
+background-color: cyan;
+}
+main{
+  width: 80%;
+}
+footer{
+  min-height: 4em;
+  background-color: rgb(9, 241, 152);
+  flex-shrink: 0;
+}
+.App{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.cont{
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+}

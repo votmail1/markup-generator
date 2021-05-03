@@ -1,0 +1,2 @@
+export const FLEXGEN_ROWS = 'FLEXGEN_ROWS'
+export const FLEXGEN_COLUMNS = 'FLEXGEN_COLUMNS'
