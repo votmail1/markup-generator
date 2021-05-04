@@ -1,19 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Main from './componets/main';
-import SideBar from './componets/sideBar';
+import Header from "./componets/Header";
+import FlexSideBar from "./componets/FlexSideBar";
+import Main from './componets/Main';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        header
-      </header>
+      <Header/>
       <div className='cont w-auto m-0 p-0'>
-        <SideBar />
+        <FlexSideBar />
         <Main />
       </div>
-      <footer>
+      <footer className='bg-dark text-white'>
         footer
       </footer>
     </div>

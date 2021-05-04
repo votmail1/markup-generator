@@ -1,2 +1,4 @@
 export const FLEXGEN_ROWS = 'FLEXGEN_ROWS'
 export const FLEXGEN_COLUMNS = 'FLEXGEN_COLUMNS'
+export const FLEXGEN_HTML = 'FLEXGEN_HTML'
+export const FLEXGEN_CSS = 'FLEXGEN_CSS'

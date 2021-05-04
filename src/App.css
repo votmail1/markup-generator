@@ -1,10 +1,8 @@
 header{
   min-height: 4em;
-  background-color: blueviolet;
 }
 aside{
 width: 20%;
-background-color: cyan;
 }
 main{
   width: 80%;
