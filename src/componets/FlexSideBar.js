@@ -1,6 +1,8 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {flexGenCols, flexGenHtml, flexGenRows} from '../store/actions/flexGenActions'
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {a11yLight} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {flexGenCols, flexGenCss, flexGenHtml, flexGenRows} from '../store/actions/flexGenActions'
 
 const FlexSideBar = () => {
     const dispatch = useDispatch()
@@ -25,34 +27,47 @@ const FlexSideBar = () => {
 
     const getCode = (evt) => {
         evt.preventDefault()
-        const markup = (<code className="text-white">
-            &lt;div class='container'><br/>
-            {Object.values(rows).map((row, i) => (
-                <span key={row}>&lt;div class='el-{row} row'><br/>
-                    row-{i + 1}<br/>
-                    {Object.values(cols[i]).map((col, i) => (<span key={col}>
-                        &lt;div class='col'>col-{col + 1}&lt;/div></span>))} <br/>
-                    &lt;/div><br/>
-                </span>))}
-            &lt;/div>
-        </code>)
-        dispatch(flexGenHtml(markup))
-        // console.log((html))
+        let html = ''
+        for (let i = 0; i < rows.length; i++) {
+            let col = ''
+            for (let j = 0; j < cols[i].length; j++) {
+                col +=
+                    "    <div class='col'>\n" +
+                    "        col-" + (+j + 1) + "\n" +
+                    "    </div>\n"
+            }
+            html += "<div class='el-" + (+i + 1) + " row'>\n" +
+                "   row-1\n" +
+                col +
+                "</div>"
+            if (i!==rows.length-1) html += "\n"
+        }
+        dispatch(flexGenHtml(html))
+        const style =
+            ".container {\n" +
+            "   display : flex;\n" +
+            "}\n" +
+            ".row {\n" +
+            "   flex-direction: row;\n" +
+            "}" +
+            ".col {\n" +
+            "   flex-direction: column;\n" +
+            "}"
+        dispatch(flexGenCss(style))
     }
-
     return (
         <aside className='p-2 bg-secondary text-white'>
             <form>
                 <label className="form-label">quantity of rows</label>
                 <input
                     type='number'
-                    className="form-control mb-2"
+                    className="form-control mb-2 "
                     defaultValue={1}
                     onInput={(e) => qRow(e.target.value)}>
                 </input>
                 {rows.map((k, i) => (
                     <div key={k}>
-                        <label className="form-label">quantity of columns in {i + 1} row </label>
+                        <label className="form-label">quantity of columns in row-{i + 1}</label>
                         <input
                             type="number"
                             className="form-control"
@@ -61,11 +76,21 @@ const FlexSideBar = () => {
                         >
                         </input>
                     </div>))}
-                <button onClick={(e) => getCode(e)}>Get Code</button>
+                <button type="button" className="btn btn-light mt-2" onClick={(e) => getCode(e)}>Get Code</button>
             </form>
-            <pre>
-                {html}
-        </pre>
+            {html && (<> HTML
+            <div className='bg-light text-dark'>
+                <SyntaxHighlighter language="htmlbars" style={a11yLight}>
+                    {html}
+                </SyntaxHighlighter>
+            </div>
+            CSS
+            <div className='bg-light text-dark'>
+                <SyntaxHighlighter language="css" style={a11yLight}>
+                    {css}
+                </SyntaxHighlighter>
+            </div></>)
+            }
         </aside>
     )
 }
