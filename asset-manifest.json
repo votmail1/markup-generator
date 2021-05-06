@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/markup-generator/static/css/main.fe522d1c.chunk.css",
+    "main.js": "/markup-generator/static/js/main.4df0681d.chunk.js",
+    "main.js.map": "/markup-generator/static/js/main.4df0681d.chunk.js.map",
+    "runtime-main.js": "/markup-generator/static/js/runtime-main.15510ac1.js",
+    "runtime-main.js.map": "/markup-generator/static/js/runtime-main.15510ac1.js.map",
+    "static/css/2.65af8127.chunk.css": "/markup-generator/static/css/2.65af8127.chunk.css",
+    "static/js/2.1ee251b3.chunk.js": "/markup-generator/static/js/2.1ee251b3.chunk.js",
+    "static/js/2.1ee251b3.chunk.js.map": "/markup-generator/static/js/2.1ee251b3.chunk.js.map",
+    "static/js/3.cd5dc935.chunk.js": "/markup-generator/static/js/3.cd5dc935.chunk.js",
+    "static/js/3.cd5dc935.chunk.js.map": "/markup-generator/static/js/3.cd5dc935.chunk.js.map",
+    "index.html": "/markup-generator/index.html",
+    "static/css/2.65af8127.chunk.css.map": "/markup-generator/static/css/2.65af8127.chunk.css.map",
+    "static/css/main.fe522d1c.chunk.css.map": "/markup-generator/static/css/main.fe522d1c.chunk.css.map",
+    "static/js/2.1ee251b3.chunk.js.LICENSE.txt": "/markup-generator/static/js/2.1ee251b3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15510ac1.js",
+    "static/css/2.65af8127.chunk.css",
+    "static/js/2.1ee251b3.chunk.js",
+    "static/css/main.fe522d1c.chunk.css",
+    "static/js/main.4df0681d.chunk.js"
+  ]
+}
