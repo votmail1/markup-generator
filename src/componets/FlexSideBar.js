@@ -119,7 +119,21 @@ const FlexSideBar = () => {
     const collapseHandler = (i) => {
         setCollapse({...collapse, [i]: !collapse[i]})
     }
-    useEffect(getCode, [containersQuantity.length, containersDirection, dispatch, items, items.change])
+    useEffect(getCode, [
+        containersQuantity.length,
+        containersQuantity,
+        containersDirection,
+        containersWrap,
+        containersJC,
+        containersAI,
+        containersAC,
+        containersAS,
+        items,
+        html,
+        css,
+        dispatch,
+        items.change
+    ])
 
     return (
         <aside className='p-2 bg-secondary text-white'>
@@ -147,7 +161,7 @@ const FlexSideBar = () => {
                             </button>
                         <div id={"properties" + (i + 1)} className={collapse[i] ? 'hidden' : 'shown'}>
                             <label className="form-label">Direction</label>
-                            <select className="form-select" aria-label="Default select example"
+                            <select className="select w-100 p-2 rounded" aria-label="Default select example"
                                     onChange={e => selectDirection(i, e.target.value)} name="direction">
                                 <option value=" rows">rows</option>
                                 <option value=" row-reverse">row-reverse</option>
@@ -155,14 +169,14 @@ const FlexSideBar = () => {
                                 <option value=" column-reverse">column-reverse</option>
                             </select>
                             <label className=" form-label">Wrap</label>
-                            <select className=" form-select" aria-label="Default select example"
+                            <select className=" select w-100 p-2 rounded" aria-label="Default select example"
                                     onChange={e => selectWrap(i, e.target.value)} name='wrap'>
                                 <option value=" nowrap">nowrap</option>
                                 <option value=" wrap">wrap</option>
                                 <option value=" wrap-reverse">wrap-reverse</option>
                             </select>
                             <label className=" form-label">Justify-Content</label>
-                            <select className=" form-select" aria-label="Default select example"
+                            <select className=" select w-100 p-2 rounded" aria-label="Default select example"
                                     onChange={e => selectJustifyContent(i, e.target.value)} name='justify-content'>
                                 <option value=" jc-flex-start">flex-start</option>
                                 <option value=" jc-flex-end">flex-end</option>
@@ -172,7 +186,7 @@ const FlexSideBar = () => {
                                 <option value=" jc-space-evenly">space-evenly</option>
                             </select>
                             <label className="form-label">Align-Items</label>
-                            <select className="form-select" aria-label="Default select example"
+                            <select className="select w-100 p-2 rounded" aria-label="Default select example"
                                     onChange={e => selectAlignItems(i, e.target.value)} name='align-items'>
                                 <option value=" ai-stretch">stretch</option>
                                 <option value=" ai-flex-start">flex-start</option>
@@ -181,7 +195,7 @@ const FlexSideBar = () => {
                                 <option value=" ai-baseline">baseline</option>
                             </select>
                             <label className="form-label">Align-Content</label>
-                            <select className="form-select" aria-label="Default select example"
+                            <select className="select w-100 p-2 rounded" aria-label="Default select example"
                                     onChange={e => selectAlignContent(i, e.target.value)} name='align-items'>
                                 <option value=" ac-stretch">stretch</option>
                                 <option value=" ac-flex-end">flex-end</option>
@@ -191,7 +205,7 @@ const FlexSideBar = () => {
                                 <option value=" ac-flex-start">flex-start</option>
                             </select>
                             <label className="form-label">Align-Self</label>
-                            <select className="form-select" aria-label="Default select example"
+                            <select className="select w-100 p-2 rounded" aria-label="Default select example"
                                     onChange={e => selectAlignSelf(i, e.target.value)} name='align-items'>
                                 <option value=" as-stretch">stretch</option>
                                 <option value=" as-auto ">auto</option>

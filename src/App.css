@@ -27,7 +27,7 @@ footer {
     display: flex;
     flex-direction: row;
 }
-
+select:focus,
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -54,24 +54,26 @@ input[type="color"]:focus,
     width: 100%;
     flex-wrap: wrap;
     margin: 0 auto;
+    min-height: 100px;
 }
 .item{
     max-width: 6em;
+    max-height: 3em;
 }
 .rows {
-    flex-direction: row!important;
+    flex-direction: row
 }
 
 .row-reverse {
-    flex-direction: row-reverse!important;
+    flex-direction: row-reverse
 }
 
 .column {
-    flex-direction: column!important;
+    flex-direction: column
 }
 
 .column-reverse {
-    flex-direction: column-reverse!important;
+    flex-direction: column-reverse
 }
 
 .nowrap{
@@ -113,10 +115,10 @@ input[type="color"]:focus,
     align-items: flex-end;
 }
 .ai-center{
-    align-items: stretch;
+    align-items: center;
 }
 .ai-baseline{
-    align-items: stretch;
+    align-items: baseline;
 }
 
 .ac-flex-start{
@@ -134,9 +136,10 @@ input[type="color"]:focus,
 .ac-space-around{
     align-content: space-around;
 }
-.ac-sstretch{
+.ac-stretch{
     align-content: stretch;
 }
+
 .hidden{
     display: none;
 }

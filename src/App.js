@@ -1,14 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React from "react";
-import {BrowserRouter as Router,
+import {
+    BrowserRouter as Router,
     Switch,
-    Route,
-    Link} from "react-router-dom";
-import Header from "./componets/Header";
-import FlexSideBar from "./componets/FlexSideBar";
-import FlexGenMain from './componets/FlexGenMain';
-import Footer from "./componets/Footer";
+    Route
+} from "react-router-dom";
 import FlexGen from "./Pages/FlexGen";
 
 function App() {
