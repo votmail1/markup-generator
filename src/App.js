@@ -1,19 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import React from "react";
+import {BrowserRouter as Router,
+    Switch,
+    Route,
+    Link} from "react-router-dom";
 import Header from "./componets/Header";
 import FlexSideBar from "./componets/FlexSideBar";
-import Main from './componets/Main';
+import FlexGenMain from './componets/FlexGenMain';
 import Footer from "./componets/Footer";
+import FlexGen from "./Pages/FlexGen";
 
 function App() {
     return (
         <div className="App">
-            <Header/>
-            <div className='cont w-auto m-0 p-0'>
-                <FlexSideBar/>
-                <Main/>
-            </div>
-            <Footer/>
+            <Router>
+                <Switch>
+                    <Route path="/flexgen">
+                        <FlexGen />
+                    </Route>
+                    <Route path="/">
+                        <FlexGen />
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     );
 }

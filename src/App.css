@@ -1,27 +1,33 @@
-header{
-  min-height: 4em;
+header {
+    min-height: 4em;
 }
-aside{
-width: 20%;
+
+aside {
+    width: 20%;
 }
-main{
-  width: 80%;
+
+main {
+    width: 80%;
 }
-footer{
-  min-height: 4em;
-  background-color: rgb(9, 241, 152);
-  flex-shrink: 0;
+
+footer {
+    min-height: 4em;
+    background-color: rgb(9, 241, 152);
+    flex-shrink: 0;
 }
-.App{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-.cont{
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: row;
+
+.cont {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
 }
+
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -38,7 +44,99 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.07) inset, 0 0 5px rgb(255, 255, 255);
-  outline: 0 none;
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.07) inset, 0 0 5px rgb(255, 255, 255);
+    outline: 0 none;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.item{
+    max-width: 6em;
+}
+.rows {
+    flex-direction: row!important;
+}
+
+.row-reverse {
+    flex-direction: row-reverse!important;
+}
+
+.column {
+    flex-direction: column!important;
+}
+
+.column-reverse {
+    flex-direction: column-reverse!important;
+}
+
+.nowrap{
+    flex-wrap: nowrap;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.wrap-reverse{
+    flex-wrap: wrap-reverse;
+}
+
+.jc-flex-start{
+    justify-content: flex-start;
+}
+.jc-flex-end{
+    justify-content: flex-end;
+}
+.jc-center{
+    justify-content: center;
+}
+.jc-space-between{
+    justify-content: space-between;
+}
+.jc-space-around{
+    justify-content: space-around;
+}
+.jc-space-evenly{
+    justify-content: space-evenly;
+}
+
+.ai-stretch{
+    align-items: stretch;
+}
+.ai-flex-start{
+    align-items: flex-start;
+}
+.ai-flex-end{
+    align-items: flex-end;
+}
+.ai-center{
+    align-items: stretch;
+}
+.ai-baseline{
+    align-items: stretch;
+}
+
+.ac-flex-start{
+    align-content: flex-start;
+}
+.ac-flex-end{
+    align-content: flex-end;
+}
+.ac-center {
+    align-content: center;
+}
+.ac-space-between{
+    align-content: space-between;
+}
+.ac-space-around{
+    align-content: space-around;
+}
+.ac-sstretch{
+    align-content: stretch;
+}
+.hidden{
+    display: none;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -6,10 +7,10 @@ const Header = () => {
             <h4 className="px-3">Markup Generator</h4>
             <ul className="nav nav-tabs  ">
                 <li className="nav-item">
-                    <a className="nav-link active bg-secondary text-white border-secondary" href="#">Flex</a>
+                    <Link to="/flexgen" className="nav-link active bg-secondary text-white border-secondary" >Flex</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link text-white " href="#">Grid</a>
+                    <Link to="/" className="nav-link text-white " >Grid</Link>
                 </li>
             </ul>
         </header>
