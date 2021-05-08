@@ -9,7 +9,7 @@ import {
     FLEXGEN_CONTAINER_AI,
     FLEXGEN_CONTAINER_AC,
     FLEXGEN_CONTAINER_AS,
-} from "../constants/constants";
+} from "../constants/constants"
 
 
 export const flexGenContainers = (qContainers) => ({

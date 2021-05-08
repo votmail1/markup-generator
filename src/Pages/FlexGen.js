@@ -1,8 +1,8 @@
-import React from 'react';
-import Header from "../componets/Header";
-import FlexSideBar from "../componets/FlexSideBar";
-import FlexGenMain from "../componets/FlexGenMain";
-import Footer from "../componets/Footer";
+import React from 'react'
+import Header from "../componets/Header"
+import FlexSideBar from "../componets/FlexSideBar"
+import FlexGenMain from "../componets/FlexGenMain"
+import Footer from "../componets/Footer"
 
 const FlexGen = () => {
     return (
@@ -14,7 +14,7 @@ const FlexGen = () => {
             </div>
             <Footer/>
         </>
-    );
-};
+    )
+}
 
-export default FlexGen;
+export default FlexGen

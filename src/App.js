@@ -1,12 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import React from "react"
 import {
     BrowserRouter as Router,
     Switch,
     Route
-} from "react-router-dom";
-import FlexGen from "./Pages/FlexGen";
+} from "react-router-dom"
+import FlexGen from "./Pages/FlexGen"
 
 function App() {
     return (
@@ -22,7 +22,7 @@ function App() {
                 </Switch>
             </Router>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App

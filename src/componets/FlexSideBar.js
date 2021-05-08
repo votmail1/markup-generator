@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import SyntaxHighlighter from "react-syntax-highlighter";
-import {a11yLight} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from "react-syntax-highlighter"
+import {a11yLight} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import {
     flexGenItems,
     flexGenCss,
@@ -16,7 +16,7 @@ import {
 } from '../store/actions/flexGenActions'
 
 const FlexSideBar = () => {
-    const [collapse, setCollapse] = useState({0: true});
+    const [collapse, setCollapse] = useState({0: true})
     const dispatch = useDispatch()
     const {
         containersQuantity,
@@ -31,20 +31,36 @@ const FlexSideBar = () => {
         css
     } = useSelector(state => state.flexGen)
     const qContainers = (val) => {
-        let arr = []
-        for (let i = 0; i < val; i++) {
-            arr[i] = i
-        }
+        let quantity = [1]
+        let direction = {}
+        let wrap = {}
+        let jC = {}
+        let aI = {}
+        let aC = {}
+        let aS = {}
+        let col = {}
+        let qIt = {}
         if (val > 0) {
-            dispatch(flexGenContainers(arr))
-            selectDirection(arr.length - 1, ' rows')
-            selectWrap(arr.length - 1, ' nowrap')
-            selectJustifyContent(arr.length - 1, ' flex-start')
-            selectAlignItems(arr.length - 1, ' stretch')
-            selectAlignContent(arr.length - 1, ' stretch')
-            selectAlignSelf(arr.length - 1, ' stretch')
-            setCollapse({...collapse, [arr.length - 1]: true})
-            qItems(arr.length - 1, items[arr.length - 1] ? items[arr.length - 1].length : 1)
+            for (let i = 0; i < val; i++) {
+                quantity[i] = i
+                containersDirection[i] ? direction[i] = containersDirection[i] : direction[i] = ' rows'
+                containersWrap[i] ? wrap[i] = containersWrap[i] : wrap[i] = ' nowrap'
+                containersJC[i] ? jC[i] = containersJC[i] : jC[i] = ' flex-start'
+                containersAI[i] ? aI[i] = containersAI[i] : aI[i] = ' stretch'
+                containersAC[i] ? aC[i] = containersAC[i] : aC[i] = ' stretch'
+                containersAS[i] ? aS[i] = containersAS[i] : aS[i] = ' stretch'
+                collapse[i] ? col[i] = collapse[i] : col[i] = ' stretch'
+                items[i] ? qIt[i] = items[i] : qIt[i] = [1]
+            }
+            setCollapse(col)
+            dispatch(flexGenItems(qIt))
+            dispatch(flexGenContainerDirection(direction))
+            dispatch(flexGenContainerWrap(wrap))
+            dispatch(flexGenContainerJustifyContent(jC))
+            dispatch(flexGenContainerAlignItems(aI))
+            dispatch(flexGenContainerAlignContent(aC))
+            dispatch(flexGenContainerAlignSelf(aS))
+            dispatch(flexGenContainers(quantity))
         }
     }
 
@@ -63,7 +79,7 @@ const FlexSideBar = () => {
         let html = ''
         for (let i = 0; i < containersQuantity.length; i++) {
             let col = ''
-            for (let j = 0; j < items[i].length; j++) {
+            for (let j = 0; j < (items[i] ? items[i].length : 1); j++) {
                 col +=
                     `    <div class='item'>\n` +
                     `        item-${+j + 1}\n` +
@@ -92,30 +108,23 @@ const FlexSideBar = () => {
     }
 
     const selectDirection = (indx, direction) => {
-        const obj = {...containersDirection, [indx]: direction}
-        dispatch(flexGenContainerDirection(obj))
+        dispatch(flexGenContainerDirection({...containersDirection, [indx]: direction}))
     }
     const selectWrap = (indx, Wrap) => {
-        const obj = {...containersWrap, [indx]: Wrap}
-        dispatch(flexGenContainerWrap(obj))
+        dispatch(flexGenContainerWrap({...containersWrap, [indx]: Wrap}))
     }
     const selectJustifyContent = (indx, JC) => {
-        const obj = {...containersJC, [indx]: JC}
-        dispatch(flexGenContainerJustifyContent(obj))
+        dispatch(flexGenContainerJustifyContent({...containersJC, [indx]: JC}))
     }
     const selectAlignItems = (indx, AI) => {
-        const obj = {...containersAI, [indx]: AI}
-        dispatch(flexGenContainerAlignItems(obj))
+        dispatch(flexGenContainerAlignItems({...containersAI, [indx]: AI}))
     }
     const selectAlignContent = (indx, AC) => {
-        const obj = {...containersAC, [indx]: AC}
-        dispatch(flexGenContainerAlignContent(obj))
+        dispatch(flexGenContainerAlignContent({...containersAC, [indx]: AC}))
     }
     const selectAlignSelf = (indx, AS) => {
-        const obj = {...containersAS, [indx]: AS}
-        dispatch(flexGenContainerAlignSelf(obj))
+        dispatch(flexGenContainerAlignSelf({...containersAS, [indx]: AS}))
     }
-
     const collapseHandler = (i) => {
         setCollapse({...collapse, [i]: !collapse[i]})
     }
@@ -152,13 +161,13 @@ const FlexSideBar = () => {
                         <input
                             type="number"
                             className="form-control mb-2"
-                            defaultValue={items[i].length}
+                            defaultValue={items[i] ? items[i].length : 1}
                             onInput={(e) => qItems(i, e.target.value)}
                         >
                         </input>
-                            <button className="btn btn-dark" type="button" onClick={() => collapseHandler(i)}>
-                                Flex Properties
-                            </button>
+                        <button className="btn btn-dark" type="button" onClick={() => collapseHandler(i)}>
+                            Flex Properties
+                        </button>
                         <div id={"properties" + (i + 1)} className={collapse[i] ? 'hidden' : 'shown'}>
                             <label className="form-label">Direction</label>
                             <select className="select w-100 p-2 rounded" aria-label="Default select example"

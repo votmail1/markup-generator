@@ -1,7 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 
-
 const FlexGenMain = () => {
     const {
         containersDirection,
@@ -13,9 +12,7 @@ const FlexGenMain = () => {
         containersAS,
         items
     } = useSelector(state => state.flexGen)
-
-
-    const container = (Object.values(containersQuantity).map((container, i) => (
+    const container = (Object.values(containersQuantity).map((cont, i) => (
         <div
             className={`container${
                 containersDirection[i] +
@@ -25,7 +22,7 @@ const FlexGenMain = () => {
                 containersAC[i] +
                 containersAS[i]
             } bg-dark text-white border border-secondary rounded-1 p-2`}
-            key={container}>
+            key={cont}>
             Container-{i + 1}
             {Object.values(items[i]).map((col, i) => (
                 <div className={`item m-1 bg-secondary border border-secondary rounded-1`} key={col}>
