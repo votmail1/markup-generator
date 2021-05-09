@@ -8,7 +8,8 @@ import {
     FLEXGEN_CONTAINER_JC,
     FLEXGEN_CONTAINER_AI,
     FLEXGEN_CONTAINER_AC,
-    FLEXGEN_CONTAINER_AS
+    FLEXGEN_CONTAINER_AS,
+    FLEXGEN_COLLAPSE
 } from "../constants/constants"
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
         0: [1],
         change: 0
     },
+    collapse:{0: true},
     html: "",
     css: ""
 }
@@ -45,6 +47,8 @@ export const flexGenReducers = (state = initialState, action) => {
             return {...state, containersAS: action.payload}
         case FLEXGEN_ITEMS:
             return {...state, items: action.payload}
+        case FLEXGEN_COLLAPSE:
+            return {...state, collapse: action.payload}
         case FLEXGEN_HTML:
             return {...state, html: action.payload}
         case FLEXGEN_CSS:

@@ -7,6 +7,7 @@ import {
     Route
 } from "react-router-dom"
 import FlexGen from "./Pages/FlexGen"
+import GridGen from "./Pages/GridGen"
 
 function App() {
     return (
@@ -15,6 +16,9 @@ function App() {
                 <Switch>
                     <Route path="/flexgen">
                         <FlexGen />
+                    </Route>
+                    <Route path="/gridgen">
+                        <GridGen />
                     </Route>
                     <Route path="/">
                         <FlexGen />

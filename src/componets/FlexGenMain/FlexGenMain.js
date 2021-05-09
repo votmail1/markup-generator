@@ -1,5 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import './FlexGenMain.css'
 
 const FlexGenMain = () => {
     const {
@@ -31,9 +32,9 @@ const FlexGenMain = () => {
         </div>
     )))
     return (
-        <div className='pt-3 w-100'>
+        <article className='pt-3 w-100'>
             {container}
-        </div>
+        </article>
     )
 }
 export default FlexGenMain

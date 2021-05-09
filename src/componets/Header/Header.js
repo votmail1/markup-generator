@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import './Header.css'
 
 const Header = () => {
     return (
@@ -10,7 +11,7 @@ const Header = () => {
                     <Link to="/flexgen" className="nav-link active bg-secondary text-white border-secondary" >Flex</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/" className="nav-link text-white disabled" >Grid</Link>
+                    <Link to="/gridgen" className="nav-link text-white" >Grid</Link>
                 </li>
             </ul>
         </header>

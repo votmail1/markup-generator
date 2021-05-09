@@ -9,6 +9,7 @@ import {
     FLEXGEN_CONTAINER_AI,
     FLEXGEN_CONTAINER_AC,
     FLEXGEN_CONTAINER_AS,
+    FLEXGEN_COLLAPSE,
 } from "../constants/constants"
 
 
@@ -43,6 +44,10 @@ export const flexGenContainerAlignSelf = (AS) => ({
 export const flexGenItems = (qItems) => ({
     type: FLEXGEN_ITEMS,
     payload: qItems
+})
+export const flexGenCollapse = (collapsed) => ({
+        type: FLEXGEN_COLLAPSE,
+        payload: collapsed
 })
 export const flexGenHtml = (code) => ({
     type: FLEXGEN_HTML,

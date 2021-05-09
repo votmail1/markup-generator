@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from "../componets/Header/Header"
-import FlexSideBar from "../componets/FlexSideBar/FlexSideBar"
-import FlexGenMain from "../componets/FlexGenMain/FlexGenMain"
+import GridSideBar from "../componets/GridSideBar/GridSideBar"
+import GridGenMain from "../componets/GridGenMain/GridGenMain"
 import Footer from "../componets/Footer/Footer"
 
 const FlexGen = () => {
@@ -9,8 +9,8 @@ const FlexGen = () => {
         <>
             <Header/>
             <div className='cont w-auto m-0 p-0'>
-                <FlexSideBar/>
-                <FlexGenMain/>
+                <GridSideBar/>
+                <GridGenMain/>
             </div>
             <Footer/>
         </>
