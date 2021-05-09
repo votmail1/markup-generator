@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/markup-generator/static/css/main.8678e6c1.chunk.css",
-    "main.js": "/markup-generator/static/js/main.699b5f38.chunk.js",
-    "main.js.map": "/markup-generator/static/js/main.699b5f38.chunk.js.map",
+    "main.css": "/markup-generator/static/css/main.f0393142.chunk.css",
+    "main.js": "/markup-generator/static/js/main.4ee6afef.chunk.js",
+    "main.js.map": "/markup-generator/static/js/main.4ee6afef.chunk.js.map",
     "runtime-main.js": "/markup-generator/static/js/runtime-main.bdee1695.js",
     "runtime-main.js.map": "/markup-generator/static/js/runtime-main.bdee1695.js.map",
     "static/css/2.65af8127.chunk.css": "/markup-generator/static/css/2.65af8127.chunk.css",
-    "static/js/2.628e36e1.chunk.js": "/markup-generator/static/js/2.628e36e1.chunk.js",
-    "static/js/2.628e36e1.chunk.js.map": "/markup-generator/static/js/2.628e36e1.chunk.js.map",
+    "static/js/2.8d1f7fc2.chunk.js": "/markup-generator/static/js/2.8d1f7fc2.chunk.js",
+    "static/js/2.8d1f7fc2.chunk.js.map": "/markup-generator/static/js/2.8d1f7fc2.chunk.js.map",
     "static/js/3.b79937d3.chunk.js": "/markup-generator/static/js/3.b79937d3.chunk.js",
     "static/js/3.b79937d3.chunk.js.map": "/markup-generator/static/js/3.b79937d3.chunk.js.map",
     "index.html": "/markup-generator/index.html",
     "static/css/2.65af8127.chunk.css.map": "/markup-generator/static/css/2.65af8127.chunk.css.map",
-    "static/css/main.8678e6c1.chunk.css.map": "/markup-generator/static/css/main.8678e6c1.chunk.css.map",
-    "static/js/2.628e36e1.chunk.js.LICENSE.txt": "/markup-generator/static/js/2.628e36e1.chunk.js.LICENSE.txt"
+    "static/css/main.f0393142.chunk.css.map": "/markup-generator/static/css/main.f0393142.chunk.css.map",
+    "static/js/2.8d1f7fc2.chunk.js.LICENSE.txt": "/markup-generator/static/js/2.8d1f7fc2.chunk.js.LICENSE.txt",
+    "static/media/Align-Content.397b0c3a.jpeg": "/markup-generator/static/media/Align-Content.397b0c3a.jpeg",
+    "static/media/Align-Items.d5298ed7.jpeg": "/markup-generator/static/media/Align-Items.d5298ed7.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.bdee1695.js",
     "static/css/2.65af8127.chunk.css",
-    "static/js/2.628e36e1.chunk.js",
-    "static/css/main.8678e6c1.chunk.css",
-    "static/js/main.699b5f38.chunk.js"
+    "static/js/2.8d1f7fc2.chunk.js",
+    "static/css/main.f0393142.chunk.css",
+    "static/js/main.4ee6afef.chunk.js"
   ]
 }
