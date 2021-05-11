@@ -16,10 +16,10 @@ const initialState = {
     containersQuantity: [1],
     containersDirection: {0: ' rows'},
     containersWrap: {0: ' nowrap'},
-    containersJC: {0: ' flex-start'},
-    containersAI: {0: ' stretch'},
-    containersAC: {0: ' stretch'},
-    containersAS: {0: ' stretch'},
+    containersJC: {0: ' jc-flex-start'},
+    containersAI: {0: ' ai-stretch'},
+    containersAC: {0: ' ac-stretch'},
+    containersAS: {0: ' as-stretch'},
     items: {
         0: [1],
         change: 0

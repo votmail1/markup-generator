@@ -1,38 +1,37 @@
 import {
-    GRIDGEN_ITEMS,
+    GRIDGEN_SECTIONS,
+    GRIDGEN_SELECTED_SECTIONS,
     GRIDGEN_ROWS,
     GRIDGEN_COLS,
     GRIDGEN_CSS,
-    GRIDGEN_HTML,
-    GRIDGEN_CONTAINER_QUANTITY,
-    GRIDGEN_COLLAPSE,
+    GRIDGEN_HTML, GRIDGEN_SELECTED_SECTIONS_CLEAR,
 } from "../constants/constants"
 
-export const gridGenContainers = (qContainers) => ({
-    type: GRIDGEN_CONTAINER_QUANTITY,
-    payload: qContainers
+export const gridGenSections = (payload) => ({
+    type: GRIDGEN_SECTIONS,
+    payload: payload
 })
-export const gridGenItems = (qItemss) => ({
-    type: GRIDGEN_ITEMS,
-    payload: qItemss
+export const gridGenSelectedSections = (payload) => ({
+    type: GRIDGEN_SELECTED_SECTIONS,
+    payload: payload
 })
-export const gridGenRows = (qRows) => ({
+export const gridGenSelectedSectionsClear = (payload) => ({
+    type: GRIDGEN_SELECTED_SECTIONS_CLEAR,
+    payload: payload
+})
+export const gridGenRows = (payload) => ({
     type: GRIDGEN_ROWS,
-    payload: qRows
+    payload: payload
 })
-export const gridGenCols = (qCols) => ({
+export const gridGenCols = (payload) => ({
     type: GRIDGEN_COLS,
-    payload: qCols
+    payload: payload
 })
-export const gridGenCollapse = (collapsed) => ({
-    type: GRIDGEN_COLLAPSE,
-    payload: collapsed
-})
-export const gridGenHtml = (code) => ({
+export const gridGenHtml = (payload) => ({
     type: GRIDGEN_HTML,
-    payload: code
+    payload: payload
 })
-export const gridGenCss = (code) => ({
+export const gridGenCss = (payload) => ({
     type: GRIDGEN_CSS,
-    payload: code
+    payload: payload
 })

@@ -100,9 +100,10 @@ const FlexSideBar = () => {
                 `   display : flex;\n` +
                 `   flex-direction: ${containersDirection[i]};\n` +
                 `   flex-wrap: ${containersWrap[i]};\n` +
-                `   justify-content: ${containersJC[i]};\n` +
-                `   align-items: ${containersAI[i]};\n` +
-                `   align-content: ${containersAC[i]};\n` +
+                `   justify-content: ${containersJC[i].slice(4, containersJC[i].length)};\n` +
+                `   align-items: ${containersAI[i].slice(4, containersJC[i].length)};\n` +
+                `   align-content: ${containersAC[i].slice(4, containersJC[i].length)};\n` +
+                `   align-self: ${containersAS[i].slice(4, containersJC[i].length)};\n` +
                 `}\n`
         }
         dispatch(flexGenCss(style))
@@ -147,7 +148,7 @@ const FlexSideBar = () => {
     ])
 
     return (
-        <aside className='p-2 bg-secondary text-white'>
+        <aside className='f-aside p-2 bg-secondary text-white'>
             <form>
                 <label className="form-label">Quantity Of Containers</label>
                 <input

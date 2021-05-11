@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import './Header.css'
 
 const Header = () => {
@@ -8,10 +8,10 @@ const Header = () => {
             <h4 className="px-3">Markup Generator</h4>
             <ul className="nav nav-tabs  ">
                 <li className="nav-item">
-                    <Link to="/flexgen" className="nav-link active bg-secondary text-white border-secondary" >Flex</Link>
+                    <NavLink to="/flexgen" className="nav-link bg-secondary text-white border" activeClassName={'border-secondary'} >Flex</NavLink>
                 </li>
                 <li className="nav-item">
-                    <Link to="/gridgen" className="nav-link text-white" >Grid</Link>
+                    <NavLink to="/gridgen" className="nav-link text-white bg-secondary border" activeClassName={'border-secondary'}>Grid</NavLink>
                 </li>
             </ul>
         </header>

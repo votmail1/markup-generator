@@ -3,157 +3,126 @@ import {useSelector, useDispatch} from 'react-redux'
 import SyntaxHighlighter from "react-syntax-highlighter"
 import {a11yLight} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import {
-    gridGenItems,
+    gridGenSections,
     gridGenRows,
     gridGenCols,
     gridGenCss,
-    gridGenCollapse,
     gridGenHtml,
-    gridGenContainers,
+    gridGenSelectedSectionsClear,
 } from '../../store/actions/gridGenActions'
+import './GridSideBar.css'
 
 const GridSideBar = () => {
     const dispatch = useDispatch()
     const {
-        containersQuantity,
-        containersDirection,
-        containersWrap,
-        containersJC,
-        containersAI,
-        containersAC,
-        containersAS,
-        items,
+        selectedSection,
+        sections,
         rows,
         cols,
-        collapse,
         html,
         css
     } = useSelector(state => state.gridGen)
-    const qContainers = (val) => {
-        let quantity = [1]
-        let qItems = {}, col = {}, qRows = {}, qCols = {}
-        if (val > 0) {
-            for (let i = 0; i < val; i++) {
-                quantity[i] = i
-                collapse[i] ? col[i] = collapse[i] : col[i] = ' stretch'
-                items[i] ? qItems[i] = items[i] : qItems[i] = {[i]: [1]}
-                rows[i] ? qRows[i] = rows[i] : qRows[i] = {frame : '1fr', val: 1}
-                rows[i] ? qCols[i] = cols[i] : qCols[i] = {frame : '1fr', val: 1}
-            }
-            dispatch(gridGenCollapse(col))
-            dispatch(gridGenRows(qRows))
-            dispatch(gridGenCols(qCols))
-            dispatch(gridGenItems(qItems))
-            dispatch(gridGenContainers(quantity))
-        }
-    }
 
-    const qItems = (indx, val = 1) => {
-        let obj = items
-        let arr = []
-        for (let i = 0; i < val; i++) {
-            arr[i] = i + 1
-        }
-        obj[indx] = arr
-        obj.change = items.change + 1
-        val > 0 && dispatch(gridGenItems(obj))
-    }
-    const qColsRows = (indx, val = 1, obj, action) => {
-        let str = []
+    const qColsRows = (val = 1, obj, action) => {
+        let str = ''
+        let item = {qArr: []}
         for (let i = 0; i < val; i++) {
             str += ' 1fr'
         }
-        obj[indx].frame = str
-        obj[indx].val = val
-        console.log(rows)
+        obj.fr = str
+        obj.val = val
         val > 0 && dispatch(action(obj))
+        for (let i = 0; i < (rows.val * cols.val); i++) {
+            item.qArr[i] = [i]
+        }
+        val > 0 && dispatch(gridGenSections(item))
+        val > 0 && dispatch(gridGenSelectedSectionsClear({
+            qArr: [],
+            position: 'absolute',
+            0: {
+                display: 'hidden',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+            },
+            counter: 0
+        }))
     }
 
     const getCode = () => {
         let html = ''
-        for (let i = 0; i < containersQuantity.length; i++) {
-            let col = ''
-            for (let j = 0; j < (items[i] ? items[i].length : 1); j++) {
-                col +=
-                    `    <div class='item-${+j + 1}'>\n` +
-                    `        item-${+j + 1}\n` +
-                    `    </div>\n`
-            }
-            html += `<div class='container-${i + 1}'>\n` +
-                `   container-${+i + 1}\n` +
-                col +
-                `</div>`
-            if (i !== containersQuantity.length - 1) html += "\n"
+        let item = ''
+        for (let i = 0; i < (selectedSection.counter); i++) {
+            item +=
+                `    <div class='item${+i + 1}'>\n` +
+                `        div-${+i + 1}\n` +
+                `    </div>\n`
         }
+        html += `<div class='container'>\n` +
+            `   container\n` +
+            item +
+            `</div>`
         dispatch(gridGenHtml(html))
         let style = ''
-        for (let i = 0; i < containersQuantity.length; i++) {
-            style +=
-                `.container-${i + 1} {\n` +
-                `   display : grid;\n` +
+        item = ''
+        for (let i = 0; i < (selectedSection.counter); i++) {
+            item +=
+                `.item${+i + 1}{\n` +
+                `   grid-area: `+
+                `${selectedSection[i].idT.slice(3,selectedSection[i].idT.length)} / ` +
+                `${selectedSection[i].idL.slice(3,selectedSection[i].idL.length)} / `+
+                `5 / 5;\n` +
                 `}\n`
         }
+        style +=
+
+            `***dev section below still in progress***`+
+            `.container{\n` +
+            `   display : grid;\n` +
+            `   grid-template-rows : repeat(${rows.val}, fr);\n` +
+            `   grid-template-columns : (${cols.val}, fr);\n` +
+            `   grid-column-gap: 0px;\n` +
+            `   grid-row-gap: 0px;\n` +
+            `}\n`+
+            item+
+            `**************************************************`
+
+console.log(selectedSection)
         dispatch(gridGenCss(style))
     }
 
     useEffect(getCode, [
-        containersQuantity.length,
-        containersQuantity,
-        containersDirection,
-        containersWrap,
-        containersJC,
-        containersAI,
-        containersAC,
-        containersAS,
+        selectedSection.counter,
         rows,
         cols,
-        collapse,
         html,
         css,
         dispatch,
-        items,
-        rows.change
+        sections,
     ])
     return (
-        <aside className='p-2 bg-secondary text-white'>
+        <aside className='g-aside p-2 bg-secondary text-white'>
             <form>
-                <label className="form-label">Quantity Of Containers</label>
-                <input
-                    type='number'
-                    className="form-control mb-2 "
-                    defaultValue={containersQuantity.length}
-                    onInput={(e) => qContainers(e.target.value)}>
-                </input>
                 <div className='flex-form'>
-                    {containersQuantity.map((k, i) => (
-                        <div className="border border-light p-2 me-2" key={k}>
-                            Container-{i + 1}<br/>
-                            <label className="form-label">Quantity Of Items</label>
-                            <input
-                                type="number"
-                                className="form-control mb-2"
-                                defaultValue={items[i] ? items[i].length : 1}
-                                onInput={(e) => qItems(i, e.target.value)}
-                            >
-                            </input>
-                            <label className="form-label">Quantity Of Rows</label>
-                            <input
-                                type="number"
-                                className="form-control mb-2"
-                                defaultValue={rows[i] ? rows[i].val : 1}
-                                onInput={(e) => qColsRows(i, e.target.value, rows, gridGenRows)}
-                            >
-                            </input>
-                            <label className="form-label">Quantity Of Colums</label>
-                            <input
-                                type="number"
-                                className="form-control mb-2"
-                                defaultValue={cols[i] ? cols[i].val : 1}
-                                onInput={(e) => qColsRows(i, e.target.value, cols, gridGenCols)}
-                            >
-                            </input>
-                        </div>))
-                    }
+                    <div className="border border-light p-2 me-2">
+                        <label className="form-label">Quantity Of Rows</label>
+                        <input
+                            type="number"
+                            className="form-control mb-2"
+                            defaultValue={rows ? rows.val : 2}
+                            onInput={(e) => qColsRows(e.target.value, rows, gridGenRows)}
+                        >
+                        </input>
+                        <label className="form-label">Quantity Of Colums</label>
+                        <input
+                            type="number"
+                            className="form-control mb-2"
+                            defaultValue={cols ? cols.val : 2}
+                            onInput={(e) => qColsRows(e.target.value, cols, gridGenCols)}
+                        >
+                        </input>
+                    </div>
                 </div>
             </form>
 
@@ -163,7 +132,7 @@ const GridSideBar = () => {
                         {html}
                     </SyntaxHighlighter>
                 </div>
-                CSS
+                CSS - it`s not working yet
                 <div className='bg-light text-dark'>
                     <SyntaxHighlighter language="css" style={a11yLight}>
                         {css}
