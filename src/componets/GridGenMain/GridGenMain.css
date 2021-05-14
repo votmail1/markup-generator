@@ -1,6 +1,3 @@
-article {
-    z-index: 0;
-}
 .grid-container {
     display: grid;
     width: 80vw;
@@ -17,6 +14,11 @@ article {
 }
 .selected-section{
     position: absolute;
+}
+.btn-close{
+    position: absolute;
+    right: 1em;
+    top: 1em;
 }
 .transparent{
     opacity: 1;

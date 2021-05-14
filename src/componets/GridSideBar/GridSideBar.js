@@ -60,40 +60,41 @@ const GridSideBar = () => {
                 `    </div>\n`
         }
         html += `<div class='container'>\n` +
-            `   container\n` +
             item +
             `</div>`
         dispatch(gridGenHtml(html))
         let style = ''
         item = ''
         for (let i = 0; i < (selectedSection.counter); i++) {
+            const cell = selectedSection[i].idL.slice(3, selectedSection[i].idL.length)
+            const row = Math.ceil(1 / cols.val * (selectedSection[i].idT.slice(3, selectedSection[i].idT.length)))
             item +=
                 `.item${+i + 1}{\n` +
-                `   grid-area: `+
-                `${selectedSection[i].idT.slice(3,selectedSection[i].idT.length)} / ` +
-                `${selectedSection[i].idL.slice(3,selectedSection[i].idL.length)} / `+
-                `5 / 5;\n` +
+                `   grid-area: ` +
+                `${row} / ` + // first line
+                `${ cell - (row-1)  * cols.val } / ` + // left line
+                `${ row + selectedSection[i].rows } / ` + //bottom line
+                `${ cell - (row-1)  * cols.val + selectedSection[i].cols } ;\n` + //right line
+                `   background-color: aquamarine;\n` +
                 `}\n`
         }
         style +=
-
-            `***dev section below still in progress***`+
             `.container{\n` +
             `   display : grid;\n` +
-            `   grid-template-rows : repeat(${rows.val}, fr);\n` +
-            `   grid-template-columns : (${cols.val}, fr);\n` +
+            `   grid-template-rows : repeat(${rows.val}, 1fr);\n` +
+            `   grid-template-columns : repeat(${cols.val}, 1fr);\n` +
             `   grid-column-gap: 0px;\n` +
             `   grid-row-gap: 0px;\n` +
-            `}\n`+
-            item+
-            `**************************************************`
-
-console.log(selectedSection)
+            `   width: 100%;\n` +
+            `   height: 100%;\n` +
+            `}\n` +
+            item
         dispatch(gridGenCss(style))
     }
 
     useEffect(getCode, [
         selectedSection.counter,
+        selectedSection,
         rows,
         cols,
         html,

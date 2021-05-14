@@ -1,5 +1,10 @@
 main {
-    width: 80%;
+    z-index: -1;
+}
+@media screen and (max-width: 600px) {
+    #root {
+        width: 1260px;
+    }
 }
 .container {
     display: flex;

@@ -32,7 +32,7 @@ const FlexGenMain = () => {
         </div>
     )))
     return (
-        <article className='pt-3 w-100'>
+        <article className='main pt-3 w-100'>
             {container}
         </article>
     )

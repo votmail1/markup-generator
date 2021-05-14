@@ -4,7 +4,7 @@ import React from "react"
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route, HashRouter
 } from "react-router-dom"
 import FlexGen from "./Pages/FlexGen"
 import GridGen from "./Pages/GridGen"
@@ -13,17 +13,19 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <Switch>
-                    <Route path="/flexgen">
-                        <FlexGen />
-                    </Route>
-                    <Route path="/gridgen">
-                        <GridGen />
-                    </Route>
-                    <Route path="/">
-                        <FlexGen />
-                    </Route>
-                </Switch>
+                <HashRouter>
+                    <Switch>
+                        <Route path="/flexgen">
+                            <FlexGen/>
+                        </Route>
+                        <Route path="/gridgen">
+                            <GridGen/>
+                        </Route>
+                        <Route path="/">
+                            <FlexGen/>
+                        </Route>
+                    </Switch>
+                </HashRouter>
             </Router>
         </div>
     )

@@ -11,7 +11,7 @@ const GridGenMain = () => {
         cols
     } = useSelector(state => state.gridGen)
     const dispatch = useDispatch()
-    const divStart = (value, pos, e) => {
+    const newDivStart = (value, pos, e) => {
         let obj = selectedSection
         obj[value] = {
             display: 'shown',
@@ -67,8 +67,8 @@ const GridGenMain = () => {
             height: newHeight,
             idL: idL,
             idT: idT,
-            rows:quantityV,
-            cols:quantityH,
+            rows: quantityV,
+            cols: quantityH,
         }
         obj1.counter = (value + 1)
         dispatch(gridGenSelectedSections(obj1))
@@ -83,12 +83,25 @@ const GridGenMain = () => {
             display: 'shown',
             top: (firstT.top),
             left: (firstL.left),
-            width: (firstL.width*quantityH),
-            height: (firstT.height*quantityV),
+            width: (firstL.width * quantityH),
+            height: (firstT.height * quantityV),
             idL: selectedSection[value].idL,
             idT: selectedSection[value].idT,
-            rows:quantityV,
-            cols:quantityH
+            rows: quantityV,
+            cols: quantityH
+        }
+        dispatch(gridGenSelectedSections(obj))
+    }
+    const deleteDiv = (e, i) => {
+        let obj = {}
+        obj.counter = selectedSection.counter - 1
+        obj.position = selectedSection.position
+        obj.qArr = []
+        let arr = Object.values(selectedSection)
+        arr = arr.filter((a, b) => b !== i)
+        for (let j = 0; j < selectedSection.counter - 1; j++) {
+            obj[j] = arr[j]
+            obj.qArr[j] = j
         }
         dispatch(gridGenSelectedSections(obj))
     }
@@ -106,7 +119,8 @@ const GridGenMain = () => {
                     }}
                     key={row + i}
                 >
-                    div-{[row+1]}
+                    div-{[row + 1]}
+                    <button className={'btn btn-close active'} onClick={(e) => deleteDiv(e, i)}></button>
                 </section>
             ))}
         </>)
@@ -121,10 +135,10 @@ const GridGenMain = () => {
                 }}>
                     {Object.values(sections.qArr).map((row, i) => (
                         <section
-                            id={`sec${i+1}`}
+                            id={`sec${i + 1}`}
                             className={`d-flex unselectable bg-secondary border border-dark justify-content-center align-items-center h-100`}
                             key={row + i}
-                            onMouseDown={(e) => divStart(selectedSection.counter, e.target.getBoundingClientRect(), e)}
+                            onMouseDown={(e) => newDivStart(selectedSection.counter, e.target.getBoundingClientRect(), e)}
                             onMouseUp={(e) => divEnd(selectedSection.counter, e.target.getBoundingClientRect(), e)}
                         >
                             section-{i + 1}
