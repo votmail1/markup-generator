@@ -44,7 +44,7 @@ const FlexSideBar = () => {
         if (val > 0) {
             for (let i = 0; i < val; i++) {
                 quantity[i] = i
-                containersDirection[i] ? direction[i] = containersDirection[i] : direction[i] = ' rows'
+                containersDirection[i] ? direction[i] = containersDirection[i] : direction[i] = ' row'
                 containersWrap[i] ? wrap[i] = containersWrap[i] : wrap[i] = ' nowrap'
                 containersJC[i] ? jC[i] = containersJC[i] : jC[i] = ' flex-start'
                 containersAI[i] ? aI[i] = containersAI[i] : aI[i] = ' stretch'
@@ -184,7 +184,7 @@ const FlexSideBar = () => {
                                 </label>
                                 <select className="select w-100 p-2 rounded" aria-label="Default select example"
                                         onChange={e => selectDirection(i, e.target.value)} name="direction">
-                                    <option value=" rows">rows</option>
+                                    <option value=" row">row</option>
                                     <option value=" row-reverse">row-reverse</option>
                                     <option value=" column">column</option>
                                     <option value=" column-reverse">column-reverse</option>

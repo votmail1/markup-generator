@@ -14,7 +14,7 @@ import {
 
 const initialState = {
     containersQuantity: [1],
-    containersDirection: {0: ' rows'},
+    containersDirection: {0: ' row'},
     containersWrap: {0: ' nowrap'},
     containersJC: {0: ' jc-flex-start'},
     containersAI: {0: ' ai-stretch'},
